@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
@@ -16,10 +16,14 @@ const routes: Routes = [
     },
     canActivate: [UserRouteAccessService]
   }
+  , {
+    path: 'course',
+    loadChildren: './course/course.module#CoursePageModule'
+  }
 ];
 
 @NgModule({
-  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, RouterModule.forChild(routes)],
+  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, RouterModule.forChild(routes)],
   declarations: [HomePage]
 })
 export class HomePageModule {}

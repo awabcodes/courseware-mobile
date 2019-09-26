@@ -12,9 +12,74 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <p>{{ 'WELCOME_INTRO' | translate }}</p>
+<ion-content>
+    <ion-refresher [disabled]="plt.is('desktop')" slot="fixed" (ionRefresh)="loadAll($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
 
-  <span class="hipster"></span>
+    <ion-searchbar [formControl]="searchControl" (ionChange)="onSearchInput()"></ion-searchbar>
 
+    <ion-row>
+      <ion-col size="6">
+        <ion-item>
+          <ion-label>{{ 'CATEGORY' | translate }}</ion-label>
+          <ion-select id="field_category" interface="popover" [(ngModel)]="category" (ngModelChange)="loadAll()">
+              <ion-select-option [value]="null" selected></ion-select-option>
+              <ion-select-option [value]="categoryOption" *ngFor="let categoryOption of categories; trackBy: trackCategoryById">{{categoryOption.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+  
+      <ion-col size="6">
+        <ion-item>
+          <ion-label>{{ 'LEVEL' | translate }}</ion-label>
+          <ion-select id="field_level" interface="popover" [(ngModel)]="level" (ngModelChange)="loadAll()">
+            <ion-select-option [value]="null" selected></ion-select-option>
+            <ion-select-option [value]="'BEGINNER'"> {{ 'BEGINNER' | translate }} </ion-select-option>
+            <ion-select-option [value]="'INTERMEDIATE'"> {{ 'INTERMEDIATE' | translate }} </ion-select-option>
+            <ion-select-option [value]="'ADVANCED'"> {{ 'ADVANCED' | translate }} </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-card *ngFor="let course of courses; trackBy: trackId">
+        <ion-item (click)="view(course)">
+          <ion-label class="ion-text-wrap">
+            <div *ngIf="course.picture">
+                <img [src]="'data:' + course.pictureContentType + ';base64,' + course.picture" />
+            </div>
+            <ion-row class="ion-text-center">
+              <ion-col  size="8">
+                <ion-text color="primary"><h2>{{course.title}}</h2></ion-text>
+              </ion-col>
+              <ion-col size="4">
+                <ion-badge>{{course.level | translate}}</ion-badge> <br>
+                <ion-badge>{{course.hours}} {{ 'HOUR' | translate }}</ion-badge>
+              </ion-col>
+            </ion-row>
+
+            <hr class="rule">
+
+            <ion-row class="ion-text-center">
+              <ion-col>
+                <p>{{course.subtitle}}</p>
+              </ion-col>
+            </ion-row>
+
+            <hr class="rule">
+
+            <div class="ion-text-center">
+                <ion-badge color="danger"><h2>$ {{course.price}}</h2></ion-badge>
+            </div>
+            
+            <p class="ion-text-center">{{ 'FROM' | translate }} {{course.startDate | date:'mediumDate'}} {{ 'TO' | translate }} {{course.endDate | date:'mediumDate'}}</p>
+          </ion-label>
+        </ion-item>
+    </ion-card>
+    <ion-item *ngIf="!courses?.length">
+        <ion-label>
+            {{ 'NO_COURSES_FOUND' | translate}}
+        </ion-label>
+    </ion-item>
 </ion-content>
