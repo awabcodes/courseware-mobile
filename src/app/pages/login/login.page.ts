@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ToastController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { LoginService } from 'src/app/services/login/login.service';
+import { CustomAlertService } from 'src/app/services/custom-alert.service';
 
 @Component({
   selector: 'app-login',
@@ -9,28 +10,20 @@ import { LoginService } from 'src/app/services/login/login.service';
   styleUrls: ['./login.page.scss']
 })
 export class LoginPage implements OnInit {
-  // The account fields for the login form.
   account: { username: string; password: string; rememberMe: boolean } = {
     username: '',
     password: '',
     rememberMe: false
   };
 
-  // Our translated text strings
-  private loginErrorString: string;
-
   constructor(
     public translateService: TranslateService,
     public loginService: LoginService,
-    public toastController: ToastController,
+    public customAlertService: CustomAlertService,
     public navController: NavController
   ) {}
 
-  ngOnInit() {
-    this.translateService.get('LOGIN_ERROR').subscribe(value => {
-      this.loginErrorString = value;
-    });
-  }
+  ngOnInit() {}
 
   doLogin() {
     this.loginService.login(this.account).then(
@@ -38,14 +31,8 @@ export class LoginPage implements OnInit {
         this.navController.navigateRoot('/tabs');
       },
       async err => {
-        // Unable to log in
         this.account.password = '';
-        const toast = await this.toastController.create({
-          message: this.loginErrorString,
-          duration: 3000,
-          position: 'top'
-        });
-        toast.present();
+        this.customAlertService.showToast('LOGIN_ERROR');
       }
     );
   }
