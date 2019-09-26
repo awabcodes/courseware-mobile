@@ -1,18 +1,19 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      {{ 'WELCOME_TITLE' | translate }}, Java Hipster!
+      {{ 'APP_NAME' | translate }}
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="lang-btn" (click)="changeLanguage('ar')">ع</ion-button>
+      <ion-button class="lang-btn" (click)="changeLanguage('en')">EN</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="ion-padding">
   <span class="hipster"></span>
   <div>
       <ion-button expand="block" routerLink="/login" id="signIn">{{ 'LOGIN' | translate }}</ion-button>
-
-      <p>{{ 'NO_ACCOUNT_MESSAGE' | translate }}</p>
       <ion-button expand="block" routerLink="/signup">{{ 'SIGNUP' | translate }}</ion-button>
-
   </div>
 </ion-content>
