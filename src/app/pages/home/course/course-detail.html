@@ -1,0 +1,110 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            {{ 'COURSE' | translate }}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <div item-content>
+                <div *ngIf="course.picture">
+                    <a (click)="openFile(course.pictureContentType, course.picture)">
+                        <img [src]="'data:' + course.pictureContentType + ';base64,' + course.picture" style="max-width: 100%;" alt="course image"/>
+                    </a>
+                </div>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'TITLE' | translate }}</ion-label>
+            <div item-content>
+                <span>{{course.title}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'SUBTITLE' | translate }}</ion-label>
+            <div item-content>
+                <span>{{course.subtitle}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'START_DATE' | translate }}</ion-label>
+            <div item-content>
+                <span>{{course.startDate | date:'mediumDate'}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'END_DATE' | translate }}</ion-label>
+            <div item-content>
+                <span>{{course.endDate | date:'mediumDate'}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'PRICE' | translate }}</ion-label>
+            <div item-content>
+                <span>{{course.price}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'LEVEL' | translate }}</ion-label>
+            <div item-content>
+                <span>{{course.level}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'TUTOR' | translate }}</ion-label>
+            <div item-content>
+                <span>{{course.tutor}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'CONTACT_INFO' | translate }}</ion-label>
+            <div item-content>
+                <span>{{course.contactInfo}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'REQUIREMENTS' | translate }}</ion-label>
+            <div item-content>
+                <span>{{course.requirements}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'DESCRIPTION' | translate }}</ion-label>
+            <div item-content>
+                <span>{{course.description}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'LOCATION' | translate }}</ion-label>
+            <div item-content>
+                <span>{{course.location}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'HOURS' | translate }}</ion-label>
+            <div item-content>
+                <span>{{course.hours}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'CATEGORY' | translate }}</ion-label>
+            <div item-content *ngIf="course.category">
+                <span>{{course.category?.name}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">{{ 'TAGS' | translate}}</ion-label>
+            <div item-content>
+                <span *ngFor="let tags of course.tags; let last = last">
+                    <a>{{tags.name}}</a>{{last ? '' : ', '}}
+                </span>
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>
