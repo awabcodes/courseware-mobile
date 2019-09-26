@@ -1,20 +1,20 @@
 {
   "BACK_BUTTON_TEXT": "رجوع",
 
+  "APP_NAME": "Courseware",
   "NAME": "الاسم",
-  "FIRST_NAME": "First Name",
-  "LAST_NAME": "Last Name",
+  "FIRST_NAME": "الاسم الاول",
+  "LAST_NAME": "الاسم الاخير",
   "EMAIL": "البريد الإلكتروني",
   "USERNAME": "اسم المستخدم",
   "PASSWORD": "كلمة السر",
-  "REMEMBER_ME": "Remember Me",
+  "REMEMBER_ME": "تذكرني",
   "LOGIN": "تسجيل الدخول",
   "SIGNUP": "انشاء الحساب",
-  "NO_ACCOUNT_MESSAGE": "Don't have an account yet?",
+  "NO_ACCOUNT_MESSAGE": "ليس لديك حساب؟",
 
-  "TAB1_TITLE": "عناصر",
-  "TAB2_TITLE": "بحث",
-  "TAB3_TITLE": "Account",
+  "TAB1_TITLE": "كورسات",
+  "TAB2_TITLE": "التصنيفات",
 
   "MAP_TITLE": "خريطة",
 
@@ -45,16 +45,16 @@
   "SETTINGS_PAGE_PROFILE": "تعديل الملف الشخصي",
 
   "WELCOME_TITLE": "مرحبا",
-  "LOGOUT_TITLE": "Logout",
+  "LOGOUT_TITLE": "خروج",
 
   "LOGIN_TITLE": "تسجيل الدخول",
   "LOGIN_ERROR": "تعذر تسجيل الدخول. يرجى التحقق من معلومات حسابك وإعادة المحاولة.",
   "LOGIN_BUTTON": "تسجيل الدخول",
   "SIGNUP_TITLE": "انشاء الحساب",
   "SIGNUP_ERROR": "تعذر إنشاء الحساب. يرجى التحقق من معلومات حسابك وإعادة المحاولة.",
-  "SIGNUP_SUCCESS": "Registration saved! Please check your email for confirmation.",
-  "EXISTING_USER_ERROR": "Email is already in use! Please choose another one.",
-  "INVALID_PASSWORD_ERROR": "Invalid password, please try again.",
+  "SIGNUP_SUCCESS": "تم التسجيل بنجاح, الرجاء التحقق من بريدك الالكتروني",
+  "EXISTING_USER_ERROR": "البريد الالكتروني مستخدم, الرجاء التغير",
+  "INVALID_PASSWORD_ERROR": "كلمة السر غير صالحه",
   "SIGNUP_BUTTON": "انشاء الحساب",
 
   "LIST_MASTER_TITLE": "عناصر",
@@ -73,5 +73,32 @@
 
   "SEARCH_TITLE": "بحث",
   "SEARCH_PLACEHOLDER": "ابحث في قائمة العناصر، مثل \"Donald Duck\"",
-  "EMPTY_ENTITIES_MESSAGE": "You haven't generated entities yet. Run `yo jhipster-ionic:entity <name>`"
+  "EMPTY_ENTITIES_MESSAGE": "You haven't generated entities yet. Run `yo jhipster-ionic:entity <name>`",
+
+  "NO_COURSES_FOUND": "لم يتم العثور على اي دورة",
+  "NO_CATEGORIES_FOUND": "لم يتم العثور على اي تصنيف",
+
+  "COURSE": "دورة",
+  "TITLE": "عنوان",
+  "SUBTITLE": "عنوان جانبي",
+  "START_DATE": "تاريخ البدء",
+  "END_DATE": "تاريخ الانتهاء",
+  "PRICE": "السعر",
+  "LEVEL": "المستوى",
+  "TUTOR": "المدرس",
+  "CONTACT_INFO": "معلومات الاتصال",
+  "REQUIREMENTS": "المتطلبات",
+  "DESCRIPTION": "الوصف",
+  "LOCATION": "الموقع",
+  "HOURS": "الساعات",
+  "CATEGORY": "التصنيف",
+  "TAGS": "تاقز",
+  "HOUR": "ساعة",
+
+  "BEGINNER": "مبتدئ",
+  "INTERMEDIATE": "متوسط",
+  "ADVANCED": "متقدم",
+
+  "FROM": "من",
+  "TO": "الى"
 }

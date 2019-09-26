@@ -1,6 +1,7 @@
 {
   "BACK_BUTTON_TEXT": "Back",
 
+  "APP_NAME": "Courseware",
   "NAME": "Name",
   "FIRST_NAME": "First Name",
   "LAST_NAME": "Last Name",
@@ -12,9 +13,8 @@
   "SIGNUP": "Sign up",
   "NO_ACCOUNT_MESSAGE": "Don't have an account yet?",
 
-  "TAB1_TITLE": "Home",
-  "TAB2_TITLE": "Entities",
-  "TAB3_TITLE": "Account",
+  "TAB1_TITLE": "Courses",
+  "TAB2_TITLE": "Categories",
 
   "MAP_TITLE": "Map",
 
@@ -75,5 +75,32 @@
 
   "SEARCH_TITLE": "Search",
   "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\"",
-  "EMPTY_ENTITIES_MESSAGE": "You haven't generated entities yet. Run `yo jhipster-ionic:entity <name>`"
+  "EMPTY_ENTITIES_MESSAGE": "You haven't generated entities yet. Run `yo jhipster-ionic:entity <name>`",
+
+  "NO_COURSES": "No courses found.",
+  "NO_CATEGORIES_FOUND": "No categories found.",
+
+  "COURSE": "Course",
+  "TITLE": "Title",
+  "SUBTITLE": "Subtitle",
+  "START_DATE": "Start Date",
+  "END_DATE": "End Date",
+  "PRICE": "Price",
+  "LEVEL": "Level",
+  "TUTOR": "Tutor",
+  "CONTACT_INFO": "Contact Info",
+  "REQUIREMENTS": "Requirements",
+  "DESCRIPTION": "Description",
+  "LOCATION": "Location",
+  "HOURS": "Hours",
+  "CATEGORY": "Category",
+  "TAGS": "Tags",
+  "HOUR": "hours",
+
+  "BEGINNER": "Beginner",
+  "INTERMEDIATE": "Intermediate",
+  "ADVANCED": "Advanced",
+
+  "FROM": "From",
+  "TO": "to"
 }
