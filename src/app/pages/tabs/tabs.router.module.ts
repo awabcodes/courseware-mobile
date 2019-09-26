@@ -17,20 +17,11 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'entities',
+        path: 'category',
         children: [
           {
             path: '',
-            loadChildren: '../entities/entities.module#EntitiesPageModule'
-          }
-        ]
-      },
-      {
-        path: 'account',
-        children: [
-          {
-            path: '',
-            loadChildren: '../account/account.module#AccountPageModule'
+            loadChildren: '../category/category.module#CategoryPageModule'
           }
         ]
       },
