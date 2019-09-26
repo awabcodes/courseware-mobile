@@ -9,3 +9,27 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+:root {
+    --ion-toolbar-background: var(--ion-color-primary);
+    --ion-toolbar-color: var(--ion-color-light);
+
+    --ion-tab-bar-background: var(--ion-color-primary);
+    --ion-tab-bar-color-activated: var(--ion-color-light);
+}
+
+ion-modal.inset-modal-box {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    transition: opacity 0.25s ease-in-out;
+    padding: 18vh 8vw;
+}
+
+.custom-toast {
+    --background: white;
+    --color: var(--ion-color-primary);
+    --border-color: var(--ion-color-primary);
+    --border-width: 1px;
+    --border-radius: 10px;
+    --border-style: solid;
+    text-align: center;
+}
