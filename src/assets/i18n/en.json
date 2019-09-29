@@ -77,7 +77,7 @@
   "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\"",
   "EMPTY_ENTITIES_MESSAGE": "You haven't generated entities yet. Run `yo jhipster-ionic:entity <name>`",
 
-  "NO_COURSES": "No courses found.",
+  "NO_COURSES_FOUND": "No courses found.",
   "NO_CATEGORIES_FOUND": "No categories found.",
 
   "COURSE": "Course",
