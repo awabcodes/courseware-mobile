@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthExpiredInterceptor } from './interceptors/auth-expired.interceptor';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { IonicStorageModule } from '@ionic/storage';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,7 +33,8 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     IonicModule.forRoot(),
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-' }),
-    AppRoutingModule
+    AppRoutingModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
