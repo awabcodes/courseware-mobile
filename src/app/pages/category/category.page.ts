@@ -5,6 +5,7 @@ import { HttpResponse } from '@angular/common/http';
 import { Category } from 'src/model/category.model';
 import { CategoryService } from 'src/app/services/category.service';
 import { CustomAlertService } from 'src/app/services/custom-alert.service';
+import { FavoriteService } from 'src/app/services/favorite.service';
 
 @Component({
   selector: 'app-category',
@@ -18,9 +19,12 @@ export class CategoryPage implements OnInit {
         private navController: NavController,
         private categoryService: CategoryService,
         private customAlertService: CustomAlertService,
-        public plt: Platform
+        public plt: Platform,
+        private favoriteService: FavoriteService
     ) {
         this.categories = [];
+
+        this.favoriteService.loadFavorites();
     }
 
     ngOnInit() {
@@ -56,14 +60,14 @@ export class CategoryPage implements OnInit {
     }
 
     isFavorite(category: Category) {
-
+        return this.favoriteService.isFavorite(category);
     }
 
     favorite(category: Category) {
-
+        this.favoriteService.favorite(category);
     }
 
     unFavorite(category: Category) {
-
+        this.favoriteService.unFavorite(category);
     }
 }
