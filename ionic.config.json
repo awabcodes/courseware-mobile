@@ -1,5 +1,7 @@
 {
   "name": "courseware",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
