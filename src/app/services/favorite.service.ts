@@ -12,7 +12,12 @@ export class FavoriteService {
 
     loadFavorites() {
         this.storage.get(this.key).then((favorites: Category[]) => {
-            this.favorites = favorites;
+            if (favorites) {
+                this.favorites = favorites;
+            } else {
+                this.favorites = [];
+                this.saveFavorites();
+            }
         });
     }
 
