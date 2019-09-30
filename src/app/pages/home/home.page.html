@@ -43,6 +43,35 @@
       </ion-col>
     </ion-row>
 
+    <div class="slides-background" *ngIf="isSlides">
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let course of favoriteCourses">
+          <ion-row (click)="view(course)">
+            <ion-col size="3">
+              <div *ngIf="course.picture">
+                <img [src]="'data:' + course.pictureContentType + ';base64,' + course.picture" />
+              </div>
+            </ion-col>
+            <ion-col size="6">
+              <ion-text color="light"><h3>{{course.title}}</h3></ion-text>
+              <br>
+              <ion-label color="light">
+                <p>{{course.startDate | date:'mediumDate'}} - {{course.endDate | date:'mediumDate'}}</p>
+              </ion-label>
+            </ion-col>
+            <ion-col size="3">
+              <ion-button color="light" fill="clear" (click)="isSlides = false">
+                <ion-icon name="close-circle"></ion-icon>
+              </ion-button>
+              <br>
+              <ion-badge>{{course.level | translate}}</ion-badge> <br>
+              <ion-badge><h3>$ {{course.price}}</h3></ion-badge>
+            </ion-col>
+          </ion-row>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
     <ion-card *ngFor="let course of courses; trackBy: trackId">
         <ion-item (click)="view(course)">
           <ion-label class="ion-text-wrap">

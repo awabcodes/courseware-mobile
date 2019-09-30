@@ -75,6 +75,8 @@
   "SEARCH_PLACEHOLDER": "ابحث في قائمة العناصر، مثل \"Donald Duck\"",
   "EMPTY_ENTITIES_MESSAGE": "You haven't generated entities yet. Run `yo jhipster-ionic:entity <name>`",
 
+  "DATA_LOAD_ERROR": "خطأ - فشل في تحميل البيانات",
+
   "NO_COURSES_FOUND": "لم يتم العثور على اي دورة",
   "NO_CATEGORIES_FOUND": "لم يتم العثور على اي تصنيف",
 

@@ -12,6 +12,8 @@ import { Category } from 'src/model/category.model';
 import { FormControl } from '@angular/forms';
 import { CustomAlertService } from 'src/app/services/custom-alert.service';
 import { CategoryService } from 'src/app/services/category.service';
+import * as moment from 'moment';
+import { FavoriteService } from 'src/app/services/favorite.service';
 
 @Component({
   selector: 'app-home',
@@ -21,15 +23,24 @@ import { CategoryService } from 'src/app/services/category.service';
 export class HomePage implements OnInit {
   account: Account;
   courses: Course[];
+  favoriteCourses: Course[];
 
   category: Category;
   categories: Category[];
+
+  categoryIds: number[];
 
   level: string;
 
   public searchControl: FormControl;
   searchQuery: string;
   searching: any = false;
+
+  isSlides = true;
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
 
   constructor(
     public navController: NavController,
@@ -41,7 +52,8 @@ export class HomePage implements OnInit {
     public plt: Platform,
     private route: ActivatedRoute,
     private router: Router,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private favoriteService: FavoriteService
   ) {
     this.searchControl = new FormControl();
     this.courses = [];
@@ -54,6 +66,7 @@ export class HomePage implements OnInit {
       }
 
       this.loadAll();
+      this.getFavoriteCategories();
     });
   }
 
@@ -104,6 +117,33 @@ export class HomePage implements OnInit {
                     refresher.target.complete();
                 }, 750);
             }
+        },
+        async (error) => {
+            console.error(error);
+            this.customAlertService.showToast('DATA_LOAD_ERROR');
+        });
+  }
+
+  getFavoriteCategories() {
+    this.categoryIds = this.favoriteService.favorites.map(val => val.id);
+    if (this.categoryIds.length !== 0) {
+      this.loadFromFavorites();
+    }
+  }
+
+  async loadFromFavorites() {
+    console.log(this.categoryIds);
+    this.courseService.query({
+      size: 9000000,
+      'startDate.greaterThan': moment().format('YYYY-MM-DD'),
+      'categoryId.in': this.categoryIds
+    }).pipe(
+        filter((res: HttpResponse<Course[]>) => res.ok),
+        map((res: HttpResponse<Course[]>) => res.body)
+    )
+    .subscribe(
+        (response: Course[]) => {
+            this.favoriteCourses = response;
         },
         async (error) => {
             console.error(error);

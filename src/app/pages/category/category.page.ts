@@ -23,8 +23,6 @@ export class CategoryPage implements OnInit {
         private favoriteService: FavoriteService
     ) {
         this.categories = [];
-
-        this.favoriteService.loadFavorites();
     }
 
     ngOnInit() {
